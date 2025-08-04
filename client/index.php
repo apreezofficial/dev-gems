@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Call Landing</title>
+  <title>Meet | Your All in one Video Conferencing</title>
   <script src="/tailwind.js"></script>
   <script>
     tailwind.config = { darkMode: 'class' }
