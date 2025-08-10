@@ -21,105 +21,187 @@
   include './includes/nav.php';
   ?>
 <section class="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden">
-  <!-- Background decorative circles -->
-  <div class="absolute top-0 left-0 w-48 sm:w-64 md:w-72 h-48 sm:h-64 md:h-72 bg-green-400/20 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-0 right-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-green-600/20 rounded-full blur-3xl animate-ping"></div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 transition-colors duration-300">
+  <!-- Square Grid Background -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2740%27 height=%2740%27 viewBox=%270 0 40 40%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M0 0h40v40H0z%27 fill=%27none%27/%3E%3Cpath d=%27M20 0v40M0 20h40%27 stroke=%27%23E5E7EB%27 stroke-opacity=%270.2%27/%3E%3C/svg%3E%27)] dark:bg-[url('data:image/svg+xml,%3Csvg width=%2740%27 height=%2740%27 viewBox=%270 0 40 40%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cpath d=%27M0 0h40v40H0z%27 fill=%27none%27/%3E%3Cpath d=%27M20 0v40M0 20h40%27 stroke=%27%234B5563%27 stroke-opacity=%270.2%27/%3E%3C/svg%3E%27)] bg-[length:40px_40px] opacity-50"></div>
+  </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
     <!-- Headline -->
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white animate-fadeInUp">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black dark:text-white animate-fadeInUp">
       The Future of
-      <span class="bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent animate-gradient">
+      <span class="relative inline-block">
         Video Calls
+        <span class="absolute -bottom-2 left-0 w-full h-1 bg-black dark:bg-white animate-underline"></span>
       </span>
       is Here
     </h1>
     <!-- Subtitle -->
-    <p class="mt-4 sm:mt-6 max-w-lg sm:max-w-xl md:max-w-2xl text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 animate-fadeInUp delay-200">
-      Experience ultra-clear, low-latency meetings with seamless collaboration tools.
+    <p class="mt-4 sm:mt-6 max-w-lg sm:max-w-xl md:max-w-2xl text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 animate-fadeInUp delay-200">
+      Crystal-clear video, lightning-fast connections, and seamless collaboration tools.
     </p>
     <!-- CTA Buttons -->
-    <div class="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 animate-fadeInUp delay-400">
-      <a href="#start"
-        class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow-lg hover:scale-105 transition transform">
+    <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-4 animate-fadeInUp delay-400">
+      <a href="#start" class="px-6 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">
         Get Started
       </a>
-      <a href="#learn"
-        class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/70 dark:bg-gray-700/60 text-green-700 dark:text-green-300 font-semibold shadow-lg hover:scale-105 transition transform">
+      <a href="#learn" class="px-6 py-3 rounded-lg bg-white/80 dark:bg-gray-800/80 text-black dark:text-white font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
         Learn More
       </a>
     </div>
     <!-- Hero Image -->
-    <div class="mt-10 sm:mt-12 relative w-full max-w-lg sm:max-w-2xl md:max-w-3xl animate-fadeInUp delay-600">
-      <img 
-        src="https://scontent.whatsapp.net/v/t39.8562-34/326466552_715473296769362_989563950745411966_n.png?ccb=1-7&_nc_sid=73b08c&_nc_ohc=s7TAK_ChqXkQ7kNvwFhEq_x&_nc_oc=AdljZU_-VsdU402-JIFxd9yuY3xTazXLDw-qDdnwWgIpLG1awLTDyoPQpPiyksULgUE&_nc_zt=3&_nc_ht=scontent.whatsapp.net&_nc_gid=brZpnHjzedbIbtNwve06EA&oh=01_Q5Aa2AGKQP2NKjDpM7EsV_HucNT5IBrg-t5Ouh4fXu58NS3rNw&oe=689590FE"
-        alt="Video Call Mockup" 
-        class="rounded-3xl shadow-2xl border-4 border-white dark:border-gray-700 w-full object-cover" 
+    <div class="mt-12 sm:mt-16 relative w-full max-w-lg sm:max-w-2xl md:max-w-4xl animate-fadeInUp delay-600">
+      <img
+        src="https://scontent.whatsapp.net/v/t39.8562-34/326466552_715473296769362_989563950745411966_n.png?ccb=1-7&_nc_sid=73b08c&_nc_ohc=jROWizZKXcoQ7kNvwHVo4ea&_nc_oc=AdmfYHOSfJVD0OQVotmtag0QIOtvqKH36h6bCMIy63IXLb5CVwx6LHd3vrFTrsBnJbw&_nc_zt=3&_nc_ht=scontent.whatsapp.net&_nc_gid=MVSizkXSWPbHMu-NlT05UQ&oh=01_Q5Aa2QFXA-9h4Npr0VbXMjib8n-hF_TM8Fw163-ARt7aiFEmyw&oe=689DB23E"
+        alt="Video Call Mockup"
+        class="rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-800 w-full object-cover"
       />
       <!-- Floating element top-left -->
-      <div class="absolute -top-4 sm:-top-6 -left-4 sm:-left-6 bg-white dark:bg-gray-700 rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 shadow-xl animate-bounce">
-        <span class="text-xs sm:text-sm font-medium text-green-600 dark:text-green-300">🔒 Secure</span>
+      <div class="absolute -top-4 sm:-top-6 -left-4 sm:-left-6 bg-white/90 dark:bg-gray-800/90 rounded-lg px-4 py-2 shadow-xl animate-float">
+        <span class="text-sm font-medium text-black dark:text-white flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m0 0c-2.2 0-4-1.8-4-4s1.8-4 4-4m0 0c2.2 0 4 1.8 4 4s-1.8 4-4 4m9-4c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z" />
+          </svg>
+          Secure
+        </span>
       </div>
       <!-- Floating element bottom-right -->
-      <div class="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white dark:bg-gray-700 rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 shadow-xl animate-bounce delay-1000">
-        <span class="text-xs sm:text-sm font-medium text-green-600 dark:text-green-300">⚡ Fast</span>
-      </div>
-    </div>
-  </div>
-
-<section id="features" class="relative py-16 sm:py-20 bg-white dark:bg-gray-900 overflow-hidden">
-  <!-- Decorative background -->
-  <div class="absolute top-1/2 left-0 w-64 h-64 bg-green-500/10 rounded-full blur-3xl -translate-y-1/2 -z-10"></div>
-  <div class="absolute top-0 right-0 w-80 h-80 bg-green-700/10 rounded-full blur-3xl -z-10"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Heading -->
-    <div class="text-center mb-14 animate-fadeInUp">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white">
-        Why Choose <span class="text-green-600 dark:text-green-400">Meet?</span>
-      </h2>
-      <p class="mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-        Packed with everything you need to stay connected and productive.
-      </p>
-    </div>
-
-    <!-- Features Grid -->
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Feature 1 -->
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 animate-fadeInUp delay-100">
-        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      <div class="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white/90 dark:bg-gray-800/90 rounded-lg px-4 py-2 shadow-xl animate-float delay-1000">
+        <span class="text-sm font-medium text-black dark:text-white flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">One-Click Meetings</h3>
-        <p class="text-gray-600 dark:text-gray-300">Start or join a video meeting instantly, no complicated setup required.</p>
-      </div>
-
-      <!-- Feature 2 -->
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 animate-fadeInUp delay-200">
-        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M4 6h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">HD Video & Audio</h3>
-        <p class="text-gray-600 dark:text-gray-300">Crystal-clear audio and high-definition video for better collaboration.</p>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1 animate-fadeInUp delay-300">
-        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 .341.034.675.098.996a4 4 0 11-1.732 0A5.99 5.99 0 0012 11z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">End-to-End Security</h3>
-        <p class="text-gray-600 dark:text-gray-300">Your meetings are encrypted, keeping your conversations safe.</p>
+          Fast
+        </span>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes underline {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  .animate-underline {
+    animation: underline 0.8s ease-out forwards;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+  .delay-600 {
+    animation-delay: 0.6s;
+  }
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+</style>
+<section id="features" class="relative py-16 sm:py-20 bg-white dark:bg-gray-900 overflow-hidden">
+  <!-- Decorative Background -->
+  <div class="absolute top-1/2 left-0 w-64 h-64 bg-gray-200/20 dark:bg-gray-800/20 rounded-full blur-3xl -translate-y-1/2 -z-10"></div>
+  <div class="absolute top-0 right-0 w-80 h-80 bg-gray-300/20 dark:bg-gray-700/20 rounded-full blur-3xl -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-black dark:text-white">
+        Why Choose <span class="text-black dark:text-white">Meet?</span>
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+        Everything you need to connect and collaborate seamlessly.
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Feature 1 -->
+      <div class="p-6 bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm">
+        <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-black dark:text-white mb-2">Instant Meetings</h3>
+        <p class="text-gray-600 dark:text-gray-400">Launch or join video calls with a single click—no setup hassle.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="p-6 bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm">
+        <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8v8a3 3 0 003 3h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3zm9 4a2 2 0 110-4 2 2 0 010 4z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-black dark:text-white mb-2">Crystal-Clear Video</h3>
+        <p class="text-gray-600 dark:text-gray-400">High-definition video and audio for seamless collaboration.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="p-6 bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm">
+        <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-black dark:text-white mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0-1.657-1.343-3-3-3S6 9.343 6 11s1.343 3 3 3 3-1.343 3-3zm0 0c0-2.761-2.239-5-5-5S2 8.239 2 11s2.239 5 5 5 5-2.239 5-5zm10 0c0-2.761-2.239-5-5-5s-5 2.239-5 5 2.239 5 5 5 5-2.239 5-5z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-black dark:text-white mb-2">Secure by Design</h3>
+        <p class="text-gray-600 dark:text-gray-400">End-to-end encryption keeps your meetings private and safe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional: Replace Tailwind's animate-fadeInUp with CSS for non-Tailwind users */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+</style>
 <section id="pricing" class="relative py-20 bg-gray-50 dark:bg-gray-900 overflow-hidden">
   <!-- Decorative background shapes -->
   <div class="absolute top-0 left-1/3 w-80 h-80 bg-green-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
