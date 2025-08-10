@@ -1,11 +1,5 @@
 <?php
 session_start();
-
-// Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require_once '../db/db_connect.php';
 $conn->query("CREATE DATABASE IF NOT EXISTS $dbname");
 $conn->select_db($dbname);

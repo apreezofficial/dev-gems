@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet | Your All in one Video Conferencing</title>
-  <script src="/tailwind.js"></script>
+  <script src="tailwind.js"></script>
   <script>
     tailwind.config = { darkMode: 'class' }
     if (localStorage.theme === 'dark' ||
@@ -44,7 +44,7 @@
     </p>
     <!-- CTA Buttons -->
     <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-4 animate-fadeInUp delay-400">
-      <a href="#start" class="px-6 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">
+      <a href="register.php" class="px-6 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">
         Get Started
       </a>
       <a href="#learn" class="px-6 py-3 rounded-lg bg-white/80 dark:bg-gray-800/80 text-black dark:text-white font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
@@ -184,7 +184,6 @@
 </section>
 
 <style>
-  /* Optional: Replace Tailwind's animate-fadeInUp with CSS for non-Tailwind users */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -230,7 +229,7 @@
           <li>✓ Up to 50 participants</li>
           <li>✓ Standard security</li>
         </ul>
-        <a href="#start" class="block w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow hover:scale-105 transition">Get Started</a>
+        <a href="register.php" class="block w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow hover:scale-105 transition">Get Started</a>
       </div>
 
       <!-- Pro Plan -->
