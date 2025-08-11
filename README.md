@@ -1,172 +1,128 @@
-# Meet: Modern Video Conferencing & Collaboration Platform
+# Meet: Real-time Video Conferencing Platform
 
-Experience the future of seamless communication with Meet, a high-performance web application designed for crystal-clear video calls and efficient team collaboration. Built with a robust PHP backend and a dynamic, responsive frontend, Meet offers an intuitive user experience with essential features for personal and professional connections.
+## Overview
+Meet is a real-time video conferencing application backend built with **PHP** and **MySQL**, leveraging **WebSockets** for seamless communication. It provides robust user authentication, secure call management, and integrates with third-party services like Resend for email and Cloudinary for media storage.
 
 ## Features
+- **User Authentication**: Secure registration, login, password reset, and email verification.
+- **Video Conferencing**: Initiate and join private video calls with unique room IDs via WebRTC.
+- **Call History**: Tracks and displays a user's past video call sessions.
+- **Real-time Signaling**: Utilizes WebSockets (RatchetPHP) for efficient WebRTC signaling between peers.
+- **Database Management**: Stores user profiles and call records in a MySQL database.
+- **Email Notifications**: Sends verification codes and password reset links via Resend API.
+- **Media Handling**: Configured for Cloudinary integration for potential profile image uploads (though not explicitly implemented in provided APIs).
+- **Modern Frontend (Client-side)**: Built with plain HTML, JavaScript, and styled using Tailwind CSS for a responsive and intuitive user experience.
 
-*   **Real-time Video Conferencing**: Engage in high-definition video and audio calls for unparalleled clarity.
-*   **Secure Authentication System**: Robust user registration, login, and password management powered by bcrypt hashing for secure access.
-*   **Email Notifications**: Integrated with Resend API for critical communications like account verification and password resets.
-*   **Cloud Image Storage**: Seamlessly upload and manage user profile images via Cloudinary.
-*   **Responsive and Intuitive UI**: Modern interface with dark mode support built with Tailwind CSS and vanilla JavaScript for a smooth experience across devices.
-*   **Flexible Account Options**: Choose from Basic, Pro, or Enterprise plans tailored to individual or business needs.
-*   **Comprehensive User Management**: Create, secure, and recover user accounts with ease.
+## Getting Started
+
+### Environment Variables
+To run this project, you will need to set the following environment variables in a `.env` file at the root of the project:
+
+```
+# === DATABASE CONFIG ===
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=root
+DB_NAME=meet
+
+# === CLOUDINARY CONFIG ===
+CLOUD_NAME=your_cloudinary_cloud_name
+CLOUD_API_KEY=your_cloudinary_api_key
+CLOUD_API_SECRET=your_cloudinary_api_secret
+
+# === RESEND MAIL CONFIG ===
+RESEND_API_KEY=re_your_resend_api_key
+
+# === APP CONFIG ===
+APP_ENV=development
+APP_URL=http://api.example # Or your local client URL (e.g., http://localhost:3360)
+BACKEND_API_URL=http://api.example.com # Or your local backend URL (e.g., http://localhost/server)
+```
 
 ## Usage
 
-Meet provides a comprehensive suite of features to manage user accounts and facilitate communication.
+This project consists of a backend API and a client-side interface. The client-side pages (`client/*.php`) interact with the backend APIs (`server/*/*.php`).
 
-### Account Management
+**Typical User Flow:**
 
-**User Registration:**
-To create a new account, navigate to the registration page. The process involves multiple steps:
-1.  **Enter Details and Send Verification Code**: Provide your username and email. A verification code will be sent to your email address.
-2.  **Verify Code**: Input the received code to verify your email.
-3.  **Finalize Registration**: Set your password and optionally upload a profile image and add a bio to complete your profile.
+1.  **Sign Up (`client/signup.php`):**
+    *   Users provide a username, email, and password.
+    *   A verification code is sent to their email.
+2.  **Email Verification (`client/verify/signup.php`):**
+    *   Users enter the 4-digit code received in their email to verify their account.
+3.  **Login (`client/login.php`):**
+    *   Verified users can log in with their email and password.
+    *   Successful login redirects to the dashboard.
+4.  **Dashboard (`client/dashboard/index.php`):**
+    *   Displays user profile information.
+    *   Allows users to "Start New Call" (generates a unique room ID) or "Join Call by Room ID".
+    *   Shows a history of past calls.
+5.  **Video Call (`client/dashboard/call.php`):**
+    *   Facilitates real-time video and audio communication using WebRTC.
+    *   Provides controls to mute audio/video and end the call.
+    *   Uses a WebSocket server (`server/websocket.php`) for signaling.
 
-**User Login:**
-Access your account by providing your registered email and password on the login page.
-
-**Forgot Password:**
-If you forget your password, enter your email on the forgot password page. A unique reset link will be sent to your inbox. Follow the link to set a new password.
-
-### Frontend Interactions
-
-*   **Theme Toggle**: Easily switch between light and dark modes from the navigation bar or login/forgot password pages to suit your preference.
-*   **Scroll to Top**: A discreet button appears as you scroll down, allowing for quick navigation back to the top of the page.
-*   **FAQ Accordion**: The FAQ section features an interactive accordion for easy access to information.
-
-## Technologies Used
-
-| Technology         | Purpose                                     |
-| :----------------- | :------------------------------------------ |
-| **PHP**            | Core backend logic and server-side scripting |
-| **MySQL**          | Relational database management              |
-| **Composer**       | PHP dependency management                   |
-| **Tailwind CSS**   | Utility-first CSS framework for styling     |
-| **Vanilla JavaScript** | Frontend interactivity and DOM manipulation |
-| **Resend API**     | Transactional email delivery                |
-| **Cloudinary**     | Cloud-based image and video management      |
-| **phpdotenv**      | Environment variable management             |
-| **Guzzle**         | PHP HTTP client for API interactions        |
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Author Info
-
-**Precious Adedokun**
-
-*   **Email**: apreezofficial@gmail.com
-*   **Twitter**: [YourTwitterHandle](https://twitter.com/YourTwitterHandle)
-*   **LinkedIn**: [YourLinkedInProfile](https://linkedin.com/in/YourLinkedInProfile)
-*   **Portfolio**: [YourWebsite.com](https://YourWebsite.com)
-
----
-
-# Meet API
-
-## Overview
-Meet API provides a secure and scalable backend for user authentication and profile management, built using PHP with Composer dependencies for mail services (Resend) and cloud storage (Cloudinary), and interacting with a MySQL database.
-
-## Features
-- **PHP**: Core backend logic for API endpoints.
-- **MySQL**: Persistent storage for user data and password reset tokens.
-- **Resend**: Handles sending email notifications for authentication flows.
-- **Cloudinary**: Manages cloud storage for user profile images.
-- **phpdotenv**: Securely loads environment variables.
-
-## Getting Started
-### Installation
-To set up the Meet API backend, follow these steps:
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/apreezofficial/meet.git
-    cd meet
-    ```
-2.  Install PHP dependencies via Composer:
-    ```bash
-    composer install
-    ```
-3.  Navigate to the `server` directory and ensure database connection and tables are set up. Run the `query.php` file in your browser or via CLI to create necessary tables:
-    ```bash
-    # Assuming your web server is configured for the 'server' directory
-    # Navigate to http://localhost/server/query/query.php in your browser
-    # Or, for CLI:
-    php server/query/query.php
-    ```
-
-### Environment Variables
-Create a `.env` file in the root directory of the project based on `.env.example` and populate it with the following required variables:
-
-| Variable           | Description                               | Example                                    |
-| :----------------- | :---------------------------------------- | :----------------------------------------- |
-| `DB_HOST`          | Database host                             | `localhost`                                |
-| `DB_USER`          | Database username                         | `root`                                     |
-| `DB_PASS`          | Database password                         | `root`                                     |
-| `DB_NAME`          | Database name                             | `meet`                                     |
-| `CLOUD_NAME`       | Cloudinary cloud name                     | `dgyxxxxx`                                 |
-| `CLOUD_API_KEY`    | Cloudinary API key                        | `79349xxxxx`                               |
-| `CLOUD_API_SECRET` | Cloudinary API secret                     | `Xdxxxxxxxxx`                              |
-| `RESEND_API_KEY`   | Resend API key for email services         | `re_xxxxx`                                 |
-| `APP_ENV`          | Application environment                   | `development`                              |
-| `APP_URL`          | Base URL of the application               | `http://api.example`                       |
-| `BACKEND_API_URL`  | Base URL for backend API (used for reset links) | `http://api.example.com`                   |
+**To Run the WebSocket Server:**
+The WebSocket server needs to be run separately. You can start it from your terminal:
+```bash
+php server/websocket.php
+```
+Ensure your `client/dashboard/call.php` JavaScript points to the correct WebSocket server address (e.g., `ws://0.0.0.0:8000`).
 
 ## API Documentation
+
 ### Base URL
-`https://your-api-domain.com/server` (replace with your actual domain and path to `server` directory)
+`http://api.example.com/server` (Replace `api.example.com` with your actual domain or local server address)
 
 ### Endpoints
 
-#### POST /auth/register.php
-This endpoint handles user registration across multiple actions: sending a verification code, verifying the code, and finalizing registration.
-
+#### `POST /server/auth/signup.php`
+Registers a new user. Sends a verification code to the provided email.
 **Request**:
 ```json
 {
-  "action": "[send_code|verify_code|finalize_registration]",
-  "username": "string (required for send_code)",
-  "email": "string (required for send_code)",
-  "code": "string (required for verify_code)",
-  "password": "string (required for finalize_registration)",
-  "profile_image": "file (optional, multipart/form-data for finalize_registration)",
-  "bio": "string (optional for finalize_registration)"
+  "username": "newuser",
+  "email": "user@example.com",
+  "password": "StrongPassword123"
 }
 ```
 **Response**:
-Success (send_code, verify_code):
 ```json
 {
-  "status": "success",
-  "message": "verification code sent"
-}
-```
-Success (finalize_registration):
-```json
-{
-  "status": "success",
-  "message": "registration completed"
+  "success": true,
+  "message": "Registration successful! Please check your email for the verification code."
 }
 ```
 **Errors**:
-- `400 Bad Request`: `{"status": "error", "message": "invalid action"}` (if `action` is unknown)
-- `400 Bad Request`: `{"status": "error", "message": "wrong code"}` (for `verify_code` if code is incorrect)
-- `403 Forbidden`: `{"status": "error", "message": "code verification required"}` (for `finalize_registration` if not verified)
-- `409 Conflict`: `{"status": "error", "message": "email already exists"}` (for `send_code` if email is taken)
-- `500 Internal Server Error`: `{"status": "error", "message": "failed to send email"}` (for `send_code` if email fails)
-- `500 Internal Server Error`: `{"status": "error", "message": "database error saving user details"}` (for `finalize_registration` if database fails)
+- `400 Bad Request`: "All fields are required", "Invalid email format", "Password must be at least 6 characters long", "Username already exists", "Email already exists and is verified".
+- `500 Internal Server Error`: "Server error. Please try again later."
 
-#### POST /auth/login.php
-Authenticates a user and establishes a session.
-
+#### `POST /server/auth/verify.php`
+Verifies a user's email address using a 4-digit code.
 **Request**:
 ```json
 {
-  "email": "string",
-  "password": "string"
+  "code": "1234"
+}
+```
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Email verified successfully!"
+}
+```
+**Errors**:
+- `400 Bad Request`: "Invalid request", "Please enter a valid 4-digit code", "Invalid or already verified email", "Invalid verification code".
+- `500 Internal Server Error`: "Server error. Please try again later."
+
+#### `POST /server/auth/login.php`
+Authenticates a user and establishes a session.
+**Request**:
+```json
+{
+  "email": "user@example.com",
+  "password": "StrongPassword123"
 }
 ```
 **Response**:
@@ -175,25 +131,25 @@ Authenticates a user and establishes a session.
   "success": true,
   "message": "Login successful",
   "user": {
-    "id": 123,
+    "id": 1,
     "email": "user@example.com",
-    "username": "johndoe"
+    "username": "newuser"
   }
 }
 ```
 **Errors**:
-- `400 Bad Request`: `{"success": false, "message": "Email and password are required"}`
-- `400 Bad Request`: `{"success": false, "message": "Invalid email format"}`
-- `401 Unauthorized`: `{"success": false, "message": "Invalid Credentials"}`
-- `405 Method Not Allowed`: `{"success": false, "message": "Method not allowed"}` (if not a POST request)
+- `400 Bad Request`: "Email and password are required", "Invalid email format".
+- `401 Unauthorized`: "Invalid credentials".
+- `403 Forbidden`: "Please verify your email before logging in".
+- `405 Method Not Allowed`: "Method not allowed".
+- `500 Internal Server Error`: "Server error. Please try again later."
 
-#### POST /auth/forgot.php
+#### `POST /server/auth/forgot.php`
 Initiates the password reset process by sending a reset link to the user's email.
-
 **Request**:
 ```json
 {
-  "email": "string"
+  "email": "user@example.com"
 }
 ```
 **Response**:
@@ -204,19 +160,17 @@ Initiates the password reset process by sending a reset link to the user's email
 }
 ```
 **Errors**:
-- `400 Bad Request`: `{"success": false, "message": "Valid email is required"}`
-- `404 Not Found`: `{"success": false, "message": "No account found with this email"}`
-- `500 Internal Server Error`: `{"success": false, "message": "Failed to send reset email. Please try again."}`
-- `500 Internal Server Error`: `{"success": false, "message": "Server error. Please try again later."}`
+- `400 Bad Request`: "Valid email is required".
+- `404 Not Found`: "No account found with this email".
+- `500 Internal Server Error`: "Failed to send reset email. Please try again.", "Server error. Please try again later."
 
-#### POST /auth/reset.php
-Resets a user's password using a valid token.
-
+#### `POST /server/auth/reset.php`
+Resets the user's password using a valid token received from the `forgot.php` endpoint.
 **Request**:
 ```json
 {
-  "token": "string",
-  "password": "string"
+  "token": "your_reset_token",
+  "password": "NewStrongPassword123"
 }
 ```
 **Response**:
@@ -227,17 +181,133 @@ Resets a user's password using a valid token.
 }
 ```
 **Errors**:
-- `400 Bad Request`: `{"success": false, "message": "Token and password are required"}`
-- `400 Bad Request`: `{"success": false, "message": "Password must be at least 8 characters long"}`
-- `400 Bad Request`: `{"success": false, "message": "Invalid or expired reset token"}`
-- `400 Bad Request`: `{"success": false, "message": "Reset token has expired"}`
-- `500 Internal Server Error`: `{"success": false, "message": "Server error. Please try again later."}`
+- `400 Bad Request`: "Token and password are required", "Password must be at least 8 characters long", "Invalid or expired reset token", "Reset token has expired".
+- `500 Internal Server Error`: "Server error. Please try again later."
+
+#### `GET /server/auth/check_session.php`
+Checks the current user's authentication status.
+**Request**: (No payload)
+**Response**:
+```json
+{
+  "success": true,
+  "user": {
+    "id": 1,
+    "username": "newuser",
+    "email": "user@example.com"
+  }
+}
+```
+**Errors**:
+- `401 Unauthorized`: "Not authenticated".
+- `403 Forbidden`: "Account not verified".
+- `500 Internal Server Error`: "Server error".
+
+#### `POST /server/auth/logout.php`
+Logs out the current user by destroying the session.
+**Request**: (No payload)
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Logged out"
+}
+```
+
+#### `POST /server/call/start_call.php`
+Generates a unique room ID and creates a new call record in the database.
+**Request**: (No payload)
+**Response**:
+```json
+{
+  "success": true,
+  "room_id": "unique_room_id"
+}
+```
+**Errors**:
+- `401 Unauthorized`: "Not authenticated".
+- `500 Internal Server Error`: "Server error".
+
+#### `POST /server/call/join_call.php`
+Validates a given room ID to allow a user to join an existing call.
+**Request**:
+```json
+{
+  "room_id": "existing_room_id"
+}
+```
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Joining call"
+}
+```
+**Errors**:
+- `400 Bad Request`: "Room ID is required".
+- `401 Unauthorized`: "Not authenticated".
+- `404 Not Found`: "Room not found".
+- `500 Internal Server Error`: "Server error".
+
+#### `GET /server/call/call_history.php`
+Retrieves the recent call history for the authenticated user.
+**Request**: (No payload)
+**Response**:
+```json
+{
+  "success": true,
+  "calls": [
+    {
+      "room_id": "room1",
+      "created_at": "2024-07-20 10:00:00",
+      "duration": "00:15:30"
+    },
+    {
+      "room_id": "room2",
+      "created_at": "2024-07-19 14:30:00",
+      "duration": null
+    }
+  ]
+}
+```
+**Errors**:
+- `401 Unauthorized`: "Not authenticated".
+- `500 Internal Server Error`: "Server error".
+
+## Technologies Used
+
+| Category         | Technology    | Description                                       |
+| :--------------- | :------------ | :------------------------------------------------ |
+| **Backend Core** | PHP           | Server-side scripting language for logic.         |
+| **Database**     | MySQL         | Relational database for data storage.             |
+| **WebSockets**   | RatchetPHP    | PHP library for building event-driven WebSocket servers. |
+| **Email Service**| Resend        | API for sending transactional emails.            |
+| **Cloud Storage**| Cloudinary    | Cloud-based image and video management (configured, not explicitly used in provided API calls). |
+| **Environment**  | PHP dotenv    | Loads environment variables from `.env` file.      |
+| **HTTP Client**  | Guzzle HTTP   | PHP HTTP client for making API requests.           |
+| **Frontend**     | HTML, JS      | Structure and interactivity for the user interface. |
+| **Styling**      | Tailwind CSS  | Utility-first CSS framework for rapid styling.     |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Author Info
+
+**Precious Adedokun**
+
+Connect with me:
+*   [Twitter](https://twitter.com/your_twitter_handle) (Replace with actual handle)
+*   [LinkedIn](https://linkedin.com/in/your_linkedin_profile) (Replace with actual profile)
+*   [Portfolio](https://your-portfolio.com) (Replace with actual portfolio)
 
 ---
+
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
-[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
-[![Resend](https://img.shields.io/badge/Resend-000000?style=for-the-badge&logo=resend&logoColor=white)](https://resend.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![WebSockets](https://img.shields.io/badge/WebSockets-realtime?style=for-the-badge&logo=websocket&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[![Resend](https://img.shields.io/badge/Resend-Fast_Email-blueviolet?style=for-the-badge&logo=resend&logoColor=white)](https://resend.com/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-Cloud_Media-blue?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Readme was generated by Dokugen](https://img.shields.io/badge/Readme%20was%20generated%20by-Dokugen-brightgreen)](https://www.npmjs.com/package/dokugen)
