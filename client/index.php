@@ -44,7 +44,7 @@
     </p>
     <!-- CTA Buttons -->
     <div class="mt-8 sm:mt-10 flex flex-wrap justify-center gap-4 animate-fadeInUp delay-400">
-      <a href="register.php" class="px-6 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">
+      <a href="signup.php" class="px-6 py-3 rounded-lg bg-black dark:bg-white text-white dark:text-black font-semibold shadow-lg hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">
         Get Started
       </a>
       <a href="#learn" class="px-6 py-3 rounded-lg bg-white/80 dark:bg-gray-800/80 text-black dark:text-white font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
@@ -229,7 +229,7 @@
           <li>✓ Up to 50 participants</li>
           <li>✓ Standard security</li>
         </ul>
-        <a href="register.php" class="block w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow hover:scale-105 transition">Get Started</a>
+        <a href="signup.php" class="block w-full px-6 py-3 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold shadow hover:scale-105 transition">Get Started</a>
       </div>
 
       <!-- Pro Plan -->

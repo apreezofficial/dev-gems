@@ -99,7 +99,7 @@
 
         if (data.success) {
           // Redirect to dashboard or home page after successful login
-          window.location.href = '/dashboard';
+          window.location.href = './dashboard';
         } else {
           errorMessage.textContent = data.message;
           errorMessage.classList.remove('hidden');

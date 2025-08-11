@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 require_once '../db/db_connect.php';
-require_once __DIR__ . '/../functions/general.php';
+require_once '../functions/general/functions.php';
 
 // Read JSON input
 $input = json_decode(file_get_contents('php://input'), true);

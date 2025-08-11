@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meet - Reset Password</title>
-  <script src="../tailwind.js"></script>
+  <title>Meet - Sign Up</title>
+  <script src="tailwind.js"></script>
   <style>
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -23,7 +23,7 @@
 </head>
 <body class="bg-white dark:bg-gray-900 min-h-screen flex items-center justify-center transition-colors duration-300">
   <div class="max-w-5xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-lg overflow-hidden">
-    <!-- Left Side: Reset Password Form -->
+    <!-- Left Side: Sign Up Form -->
     <div class="p-8 sm:p-12 flex flex-col justify-center animate-fadeIn">
       <div class="max-w-sm mx-auto w-full">
         <div class="flex items-center mb-8">
@@ -32,26 +32,30 @@
           </svg>
           <span class="ml-2 text-2xl font-extrabold tracking-tight text-black dark:text-white">Meet</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-black dark:text-white mb-2">Set New Password</h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-8">Enter your new password below.</p>
-        <form id="reset-form" class="space-y-6">
+        <h2 class="text-2xl sm:text-3xl font-bold text-black dark:text-white mb-2">Create Your Account</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8">Sign up to start connecting instantly.</p>
+        <form id="signup-form" class="space-y-6">
           <div>
-            <label for="password" class="block text-sm font-medium text-black dark:text-white">New Password</label>
-            <input type="password" id="password" name="password" required minlength="8" class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="••••••••">
+            <label for="username" class="block text-sm font-medium text-black dark:text-white">Username</label>
+            <input type="text" id="username" name="username" required class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="Your username">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-black dark:text-white">Email</label>
+            <input type="email" id="email" name="email" required class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-black dark:text-white">Password</label>
+            <input type="password" id="password" name="password" required class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="••••••••">
           </div>
           <div>
             <label for="confirm-password" class="block text-sm font-medium text-black dark:text-white">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" required minlength="8" class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="••••••••">
+            <input type="password" id="confirm-password" name="confirm-password" required class="mt-1 w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white text-black dark:text-white transition" placeholder="••••••••">
           </div>
-          <button type="submit" class="w-full px-4 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">Reset Password</button>
+          <button type="submit" class="w-full px-4 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-105">Sign Up</button>
         </form>
         <p id="error-message" class="mt-4 text-center text-sm text-red-500 hidden"></p>
-        <p id="success-message" class="mt-4 text-center text-sm text-green-500 hidden"></p>
         <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-          Back to <a href="../login.php" class="text-black dark:text-white hover:underline font-medium">Log in</a>
-        </p>
-                <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-          Back to <a href="../forgot.php" class="text-black dark:text-white hover:underline font-medium">Forgot password</a>
+          Already have an account? <a href="login.php" class="text-black dark:text-white hover:underline font-medium">Log in</a>
         </p>
       </div>
     </div>
@@ -64,8 +68,8 @@
         <?php endfor; ?>
       </div>
       <div class="relative z-10 flex flex-col justify-center h-full animate-fadeIn delay-200">
-        <h3 class="text-xl font-bold text-black dark:text-white mb-4">Secure Account Recovery</h3>
-        <p class="text-gray-600 dark:text-gray-400">Create a strong new password to secure your account.</p>
+        <h3 class="text-xl font-bold text-black dark:text-white mb-4">Join the Community</h3>
+        <p class="text-gray-600 dark:text-gray-400">Sign up to experience seamless video calls and secure connections with Meet.</p>
       </div>
     </div>
 
@@ -81,68 +85,48 @@
   </div>
 
   <script>
-    const resetForm = document.getElementById('reset-form');
+    const signupForm = document.getElementById('signup-form');
     const errorMessage = document.getElementById('error-message');
-    const successMessage = document.getElementById('success-message');
 
-    // Extract token from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-
-    if (!token) {
-      errorMessage.textContent = 'Invalid or missing reset token.';
-      errorMessage.classList.remove('hidden');
-      resetForm.querySelector('button').disabled = true;
-    }
-
-    resetForm.addEventListener('submit', async (e) => {
+    signupForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorMessage.classList.add('hidden');
-      successMessage.classList.add('hidden');
 
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const confirmPassword = document.getElementById('confirm-password').value;
 
+      // Client-side validation
       if (password !== confirmPassword) {
-        errorMessage.textContent = 'Passwords do not match.';
+        errorMessage.textContent = 'Passwords do not match!';
+        errorMessage.classList.remove('hidden');
+        return;
+      }
+      if (password.length < 6) {
+        errorMessage.textContent = 'Password must be at least 6 characters long!';
         errorMessage.classList.remove('hidden');
         return;
       }
 
       try {
-        const response = await fetch('../../server/auth/reset.php', {
+        const response = await fetch('../server/auth/signup.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token, password })
+          body: JSON.stringify({ username, email, password })
         });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || `HTTP error: ${response.status}`);
-        }
 
         const data = await response.json();
 
         if (data.success) {
-          successMessage.textContent = data.message || 'Password reset successfully! You can now log in.';
-          successMessage.classList.remove('hidden');
-          resetForm.reset();
-          setTimeout(() => { window.location.href = '../login.php'; }, 1500); // Redirect after 1.5 seconds
+          // Redirect to verification page after successful signup
+          window.location.href = 'verify/signup.php';
         } else {
-          errorMessage.textContent = data.message || 'Failed to reset password. Please try again.';
+          errorMessage.textContent = data.message;
           errorMessage.classList.remove('hidden');
         }
       } catch (error) {
-        console.error('Fetch error:', error);
-        let message = 'An unexpected error occurred. Please try again.';
-        if (error.message.includes('Failed to fetch')) {
-          message = 'Cannot connect to the server. Please check your internet or try again later.';
-        } else if (error.message.includes('SyntaxError')) {
-          message = 'Server response was invalid. Please contact support.';
-        } else {
-          message = error.message;
-        }
-        errorMessage.textContent = message;
+        errorMessage.textContent = 'An error occurred. Please try again.';
         errorMessage.classList.remove('hidden');
       }
     });

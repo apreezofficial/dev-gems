@@ -1,22 +1,6 @@
 <?php
 session_start();
 require_once '../db/db_connect.php';
-$conn->query("CREATE DATABASE IF NOT EXISTS $dbname");
-$conn->select_db($dbname);
-
-// Create users table if it doesn't exist
-$createTable = "
-    CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(255) NOT NULL UNIQUE,
-        password VARCHAR(255) NOT NULL,
-        username VARCHAR(50) NOT NULL
-    )";
-if (!$conn->query($createTable)) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Failed to create users table: ' . $conn->error]);
-    exit;
-}
 
 // Headers for JSON response and CORS
 header('Content-Type: application/json');
@@ -33,58 +17,76 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
-$email = isset($input['email']) ? trim($input['email']) : null;
-$password = isset($input['password']) ? trim($input['password']) : null;
+$email = trim($input['email'] ?? '');
+$password = trim($input['password'] ?? '');
 
-// Validate input
-if (!$email || !$password) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Email and password are required']);
-    exit;
+try {
+    // Validate input
+    if (empty($email) || empty($password)) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Email and password are required']);
+        exit;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Invalid email format']);
+        exit;
+    }
+
+    // Check if user exists and is verified
+    $stmt = $conn->prepare('SELECT id, email, password, username, is_verified FROM users WHERE email = ?');
+    if (!$stmt) {
+        throw new Exception('Failed to prepare statement: ' . $conn->error);
+    }
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+
+    if (!$user) {
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Invalid credentials']);
+        exit;
+    }
+
+    // Check if email is verified
+    if ($user['is_verified'] == 0) {
+        http_response_code(403);
+        echo json_encode(['success' => false, 'message' => 'Please verify your email before logging in']);
+        exit;
+    }
+
+    // Verify password
+    if (!password_verify($password, $user['password'])) {
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Invalid credentials']);
+        exit;
+    }
+
+    // Set session variables
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['email'] = $user['email'];
+    $_SESSION['username'] = $user['username'];
+
+    // Return success response
+    echo json_encode([
+        'success' => true,
+        'message' => 'Login successful',
+        'user' => [
+            'id' => $user['id'],
+            'email' => $user['email'],
+            'username' => $user['username']
+        ]
+    ]);
+} catch (Exception $e) {
+    error_log('Error in login.php: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Server error. Please try again later.']);
+} finally {
+    if (isset($stmt)) {
+        $stmt->close();
+    }
+    $conn->close();
 }
-
-// Validate email format
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Invalid email format']);
-    exit;
-}
-
-// Check if user exists
-$email = $conn->real_escape_string($email);
-$query = "SELECT id, email, password, username FROM users WHERE email = '$email'";
-$result = $conn->query($query);
-
-if ($result->num_rows === 0) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Invalid Credentials']);
-    exit;
-}
-
-$user = $result->fetch_assoc();
-
-// Verify password
-if (!password_verify($password, $user['password'])) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Invalid Credentials']);
-    exit;
-}
-
-// Set session variables
-$_SESSION['user_id'] = $user['id'];
-$_SESSION['email'] = $user['email'];
-$_SESSION['username'] = $user['username'];
-
-// Return success response
-echo json_encode([
-    'success' => true,
-    'message' => 'Login successful',
-    'user' => [
-        'id' => $user['id'],
-        'email' => $user['email'],
-        'username' => $user['username']
-    ]
-]);
-
-$conn->close();
 ?>
